@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import pickle
 from sklearn.preprocessing import LabelEncoder
+import xgboost as xgb
 
 # Load your cleaned jobs dataset
 jobs_cleaned = pd.read_csv('jobs_cleaned.csv')
