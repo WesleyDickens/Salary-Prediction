@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import pickle
 from sklearn.preprocessing import LabelEncoder
-import xgboost
+import xgboost as xgb
 
 # Load your cleaned jobs dataset
 jobs_cleaned = pd.read_csv('/mount/src/salary-prediction/jobs_cleaned.csv',low_memory=False)
@@ -20,9 +20,11 @@ jobs_cleaned['skill_name_enc'] = skill_name_encoder.fit_transform(jobs_cleaned['
 jobs_cleaned['formatted_experience_level_enc'] = experience_level_encoder.fit_transform(jobs_cleaned['formatted_experience_level'])
 
 # Load models
-loaded_med_model = pickle.load(open('median_model.sav', 'rb'))
-loaded_min_model = pickle.load(open('min_model.sav', 'rb'))
-loaded_max_model = pickle.load(open('max_model.sav', 'rb'))
+xgb = xgb.XGBRegressor()
+
+loaded_med_model = xgb.load_model('med_model.json')
+loaded_min_model = xgb.load_model('min_model.json')
+loaded_max_model = xgb.load_model('max_model.json')
 
 # Streamlit app starts here
 st.title('Salary Prediction for Job Roles')
