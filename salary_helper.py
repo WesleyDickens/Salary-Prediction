@@ -5,7 +5,7 @@ from sklearn.preprocessing import LabelEncoder
 import xgboost
 
 # Load your cleaned jobs dataset
-jobs_cleaned = pd.read_csv('jobs_cleaned.csv')
+jobs_cleaned = pd.read_csv('/mount/src/salary-prediction/jobs_cleaned.csv')
 
 # Initialize LabelEncoders
 title_encoder = LabelEncoder()
