@@ -4,4 +4,4 @@ numpy
 joblib
 scipy
 scikit-learn
-xgboost
+xgboost==1.4.0
