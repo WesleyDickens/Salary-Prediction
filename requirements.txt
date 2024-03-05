@@ -5,3 +5,4 @@ joblib
 scipy
 scikit-learn
 xgboost==1.3.3
+matplotlib
