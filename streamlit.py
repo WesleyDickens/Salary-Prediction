@@ -8,6 +8,7 @@ from sklearn.metrics import mean_squared_error
 import matplotlib.pyplot as plt
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
+from pandas import Int64Index
 
 jobs_cleaned = pd.read_csv('jobs_cleaned.csv')
 
