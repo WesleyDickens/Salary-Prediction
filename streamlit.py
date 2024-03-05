@@ -76,9 +76,13 @@ def model_eval(model, salary_level, y_test, y_pred, rmse):
     
 ### JOB TITLE PREDICTION 
 
-jobs = jobs_cleaned[['title','description']]
-job_descriptions = jobs['description'].tolist()  # Use list for maintaining order
-job_titles = jobs['title'].unique()  # This will not be used directly but ensures we're aligned with descriptions
+# Remove duplicates based on job titles to ensure uniqueness
+jobs_cleaned_unique_titles = jobs_cleaned.drop_duplicates(subset='title', keep='first')
+
+# Work with the deduplicated dataset
+jobs = jobs_cleaned_unique_titles[['title', 'description']]
+job_descriptions = jobs['description'].tolist()
+job_titles = jobs['title'].tolist() 
 
 # User input job description
 # user_input_description = """
